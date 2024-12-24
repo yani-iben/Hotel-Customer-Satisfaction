@@ -69,9 +69,8 @@ The SQL output demonstrates that amongst guests who had their rooms cleaned afte
 
 ![Housekeeping_Score](Housekeeping_Score.png)
 
-SQL Code
-sql
-Copy code
+- **SQL Code**:
+
 SELECT AVG(hkScore) AS Housekeeping_Score_Avg, 
        IF(DayTimeClean IN (SELECT DayTimeClean FROM Cleans WHERE EXTRACT(HOUR FROM Cleans.DayTimeClean) >= 16), "Y", "N") AS after_4_pm
 FROM guest_stay
@@ -87,6 +86,9 @@ Output
 The output shows that orders placed in the morning were coupled with deliveries the next day. Orders not placed in the morning were coupled with deliveries that took two days to arrive. The data indicates that management should always order supplies in the morning to minimize delays.
 
 ![Query 4](Query%204.png)
+
+- **SQL Code**:
+
 SELECT mgrID, 
        orderTime, 
        pickupTime, 
@@ -95,6 +97,23 @@ SELECT mgrID,
           orderTime LIKE '% 11:%', "Y", "N") = "Y" AS MorningOrder 
 FROM Orders 
 ORDER BY MorningOrder, orderTime ASC;
+
+### Query 5 - Supplier on Delivery Delay
+Once the driver picks up the supplies described in the previous query, the driver must then deliver them to the Wilted Lotus.
+
+Output
+The output above shows that the supplier with supID 50001, who supplies soap, takes an additional day to deliver the supplies relative to the three other suppliers who deliver the supplies within one day. Wilted Lotus should seek additional data which could explain the reason for the extended delay time.
+
+- **SQL Code**:
+
+SELECT o.supID, 
+       o.pickupTime, 
+       o.delivTime, 
+       DATEDIFF(o.delivTime, o.pickupTime) AS DriverDelay, 
+       s.item
+FROM Orders o, Supplier s
+WHERE o.supID = s.supID
+ORDER BY DriverDelay DESC;
 
 **Outcomes:**  
   - Enabled identification of trends contributing to unclean rooms, such as staffing shortages or supply mismanagement.  
