@@ -101,6 +101,7 @@ ORDER BY MorningOrder, orderTime ASC;
 ### Query 5 - Supplier on Delivery Delay
 Once the driver picks up the supplies described in the previous query, the driver must then deliver them to the Wilted Lotus.
 
+![Query 5](Query%205.png)
 Output
 The output above shows that the supplier with supID 50001, who supplies soap, takes an additional day to deliver the supplies relative to the three other suppliers who deliver the supplies within one day. Wilted Lotus should seek additional data which could explain the reason for the extended delay time.
 
