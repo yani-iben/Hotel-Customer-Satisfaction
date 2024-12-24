@@ -57,6 +57,7 @@ FROM guest_stay
 GROUP BY Repeat_Customer
 ORDER BY Repeat_Customer;
 
+![Repeat_Customer_Scores](Repeat_Customer_Scores.png)
 
 **Outcomes:**  
   - Enabled identification of trends contributing to unclean rooms, such as staffing shortages or supply mismanagement.  
