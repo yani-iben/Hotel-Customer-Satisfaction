@@ -59,6 +59,24 @@ ORDER BY Repeat_Customer;
 
 ![Repeat_Customer_Scores](Repeat_Customer_Scores.png)
 
+
+###Query 3 - Average Housekeeping Score for Cleanings After 4 PM
+
+Our database can be used to identify potential reasoning behind low housekeeping scores. One hypothesis is that rooms are not cleaned prior to guests checking in. To test this idea, we decided to determine the average housekeeping score for cleaning that occurred after 4 PM, which is right after guests’ check-in time.
+
+Output
+The SQL output demonstrates that amongst guests who had their rooms cleaned after 4 PM, there was an average 2.71 housekeeping score. In comparison, there was an average housekeeping score rating of 3.19 amongst guests who had their rooms cleaned before 4 PM. This output suggests that the time when a guest’s room is cleaned has an impact on their housekeeping score.
+
+SQL Code
+sql
+Copy code
+SELECT AVG(hkScore) AS Housekeeping_Score_Avg, 
+       IF(DayTimeClean IN (SELECT DayTimeClean FROM Cleans WHERE EXTRACT(HOUR FROM Cleans.DayTimeClean) >= 16), "Y", "N") AS after_4_pm
+FROM guest_stay
+JOIN staysIn ON Guest_stay.tripID = staysIn.tripID
+JOIN Cleans ON staysIn.roomNo = Cleans.roomNo
+GROUP BY after_4_pm;
+
 **Outcomes:**  
   - Enabled identification of trends contributing to unclean rooms, such as staffing shortages or supply mismanagement.  
   - Improved resource allocation by pinpointing high-impact issues, like increasing housekeeper staff during peak seasons.  
