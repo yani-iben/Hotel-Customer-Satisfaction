@@ -39,6 +39,8 @@
   FROM Guest_stay
   WHERE MONTH(CheckIn) IN (6, 7, 8);
 
+**Visualized Feedback Scores in R**
+
 ![Feedback_Scores_By_Season](Feedback_Scores_By_Season.png)
 
 ### Query 2- Feedback Scores for Repeat Customers vs Non-repeat
