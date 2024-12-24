@@ -39,6 +39,8 @@
   FROM Guest_stay
   WHERE MONTH(CheckIn) IN (6, 7, 8);
 
+![Feedback_Scores_By_Season](Feedback_Scores_By_Season.png)
+
 ### Query 2- Feedback Scores for Repeat Customers vs Non-repeat
 
 The primary goal for our database is to increase the efficiency of Wilted Lotus and consequently improve guest satisfaction. One way to effectively evaluate overall guest satisfaction is by looking at feedback scores. Ultimately, however, Wilted Lotus would want to see managerial improvements result in not just improved feedback scores but also more satisfied guests returning and staying again. Successful customer retention would incentivize the hotel to continually improve efficiency since that would provide a stable base of customers to earn revenue from.
