@@ -10,7 +10,8 @@
   - Centralized data for **7 entities**: guest stays, customer service staff, management staff, rooms, laundry crew, housekeepers, and suppliers.  
   - Designed relationships to ensure transparency and streamline decision-making.
  
-![Conceptual Model Er Diagram](Conceptual Model ER Diagram.png)
+![Conceptual Model ER Diagram](Conceptual%20Model%20ER%20Diagram.png)
+
 
 - **Outcomes:**  
   - Enabled identification of trends contributing to unclean rooms, such as staffing shortages or supply mismanagement.  
