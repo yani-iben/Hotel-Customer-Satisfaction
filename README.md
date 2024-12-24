@@ -67,6 +67,8 @@ Our database can be used to identify potential reasoning behind low housekeeping
 Output
 The SQL output demonstrates that amongst guests who had their rooms cleaned after 4 PM, there was an average 2.71 housekeeping score. In comparison, there was an average housekeeping score rating of 3.19 amongst guests who had their rooms cleaned before 4 PM. This output suggests that the time when a guest’s room is cleaned has an impact on their housekeeping score.
 
+![Housekeeping_Score](Housekeeping_Score.png)
+
 SQL Code
 sql
 Copy code
