@@ -79,6 +79,23 @@ JOIN staysIn ON Guest_stay.tripID = staysIn.tripID
 JOIN Cleans ON staysIn.roomNo = Cleans.roomNo
 GROUP BY after_4_pm;
 
+### Query 4 - Relationship Between Order Times and Delays in Delivery
+
+To understand the reason behind the late cleaning times, we assessed the relationship between cleaning supply order times and delivery times.
+
+Output
+The output shows that orders placed in the morning were coupled with deliveries the next day. Orders not placed in the morning were coupled with deliveries that took two days to arrive. The data indicates that management should always order supplies in the morning to minimize delays.
+
+![Query 4](Query%204.png)
+SELECT mgrID, 
+       orderTime, 
+       pickupTime, 
+       DATEDIFF(pickupTime, orderTime) AS DaysBeforeArrival,
+       IF(orderTime LIKE '% 09:%' OR orderTime LIKE '% 10:%' OR 
+          orderTime LIKE '% 11:%', "Y", "N") = "Y" AS MorningOrder 
+FROM Orders 
+ORDER BY MorningOrder, orderTime ASC;
+
 **Outcomes:**  
   - Enabled identification of trends contributing to unclean rooms, such as staffing shortages or supply mismanagement.  
   - Improved resource allocation by pinpointing high-impact issues, like increasing housekeeper staff during peak seasons.  
